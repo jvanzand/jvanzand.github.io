@@ -1,5 +1,6 @@
 # Rebuild cv.pdf from the Overleaf CV project so the site's CV link is always current.
-# Runs daily and on demand (Actions tab > "Build CV from Overleaf" > Run workflow).
+# Runs daily and on demand (Actions tab > "Build CV from Overleaf" > Run workflow;
+# tick "force" to rebuild even if the Overleaf CV is unchanged).
 # Requires a repository secret OVERLEAF_TOKEN: an Overleaf Git authentication token
 # (Overleaf Account Settings > Git Integration). It rebuilds only when the Overleaf
 # project has new commits, recorded in .cv-source-commit.
@@ -9,6 +10,11 @@ on:
   schedule:
     - cron: "0 9 * * *"
   workflow_dispatch:
+    inputs:
+      force:
+        description: "Rebuild even if the Overleaf CV has not changed"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -28,7 +34,7 @@ jobs:
           new=$(git -C cv-src rev-parse HEAD)
           old=$(cat .cv-source-commit 2>/dev/null || true)
           echo "commit=$new" >> "$GITHUB_OUTPUT"
-          if [ "$new" = "$old" ]; then echo "changed=false" >> "$GITHUB_OUTPUT"; else echo "changed=true" >> "$GITHUB_OUTPUT"; fi
+          if [ "$new" = "$old" ] && [ "${{ inputs.force }}" != "true" ]; then echo "changed=false" >> "$GITHUB_OUTPUT"; else echo "changed=true" >> "$GITHUB_OUTPUT"; fi
 
       - name: Compile CV
         if: steps.fetch.outputs.changed == 'true'
