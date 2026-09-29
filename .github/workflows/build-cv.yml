@@ -1,0 +1,48 @@
+# Rebuild cv.pdf from the Overleaf CV project so the site's CV link is always current.
+# Runs daily and on demand (Actions tab > "Build CV from Overleaf" > Run workflow).
+# Requires a repository secret OVERLEAF_TOKEN: an Overleaf Git authentication token
+# (Overleaf Account Settings > Git Integration). It rebuilds only when the Overleaf
+# project has new commits, recorded in .cv-source-commit.
+name: Build CV from Overleaf
+
+on:
+  schedule:
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-cv:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch CV source from Overleaf
+        id: fetch
+        env:
+          OVERLEAF_TOKEN: ${{ secrets.OVERLEAF_TOKEN }}
+        run: |
+          git clone --depth 1 "https://git:${OVERLEAF_TOKEN}@git.overleaf.com/6ab582345e8bd319775a9b81" cv-src
+          new=$(git -C cv-src rev-parse HEAD)
+          old=$(cat .cv-source-commit 2>/dev/null || true)
+          echo "commit=$new" >> "$GITHUB_OUTPUT"
+          if [ "$new" = "$old" ]; then echo "changed=false" >> "$GITHUB_OUTPUT"; else echo "changed=true" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Compile CV
+        if: steps.fetch.outputs.changed == 'true'
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          working_directory: cv-src
+
+      - name: Commit updated cv.pdf
+        if: steps.fetch.outputs.changed == 'true'
+        run: |
+          cp cv-src/main.pdf cv.pdf
+          echo "${{ steps.fetch.outputs.commit }}" > .cv-source-commit
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add cv.pdf .cv-source-commit
+          git diff --cached --quiet || { git commit -m "Update CV from Overleaf"; git push; }
