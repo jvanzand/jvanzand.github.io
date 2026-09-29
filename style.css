@@ -352,6 +352,10 @@ section + section {
     margin: 0;
 }
 
+.figure-stack .figure + .figure {
+    margin-top: 28px;
+}
+
 .figure img {
     width: 100%;
     border-radius: var(--radius);

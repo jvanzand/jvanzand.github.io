@@ -3,9 +3,9 @@
    ============================================ */
 
 // Link used by every "CV" link on the site (elements with a data-cv attribute).
-// cv.pdf is compiled from the Overleaf CV; .github/workflows/build-cv.yml keeps it
-// up to date automatically once the site is hosted on GitHub Pages.
-const CV_URL = "cv.pdf";
+// cv.pdf is compiled from the Overleaf CV by .github/workflows/build-cv.yml, which also
+// updates the ?v= tag below to the Overleaf commit so browsers fetch each new version.
+const CV_URL = "cv.pdf?v=7c78354";
 
 document.addEventListener('DOMContentLoaded', function () {
     // CV links
