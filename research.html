@@ -3,96 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research - Judah Van Zandt</title>
+    <title>Research · Judah Van Zandt</title>
+    <meta name="description" content="Research by Judah Van Zandt: planetary system architectures, true-mass demographics of giant planets and brown dwarfs, and how planet populations depend on stellar mass.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation Menu -->
     <nav class="navbar">
         <div class="nav-container">
-            <h1 class="logo"><a href="index.html">Judah Van Zandt</a></h1>
+            <p class="logo"><a href="index.html">Judah Van Zandt</a></p>
             <ul class="nav-menu">
-                <li><a href="index.html">About Me</a></li>
-                <li><a href="research.html" class="active">Research</a></li>
-                <li><a href="publications.html">Selected Publications</a></li>
+                <li><a href="index.html">About</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="cv.pdf" data-cv target="_blank" rel="noopener">CV</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Page Title -->
-    <header class="page-header">
+    <header class="page-intro">
         <h1>Research</h1>
+        <p>
+            I study how planetary systems acquire their architectures, at two levels: population surveys that measure how often different kinds of planets occur, and detailed studies of individual systems. Across both, I combine radial velocities (RVs), astrometry, and imaging to measure what no single technique can.
+        </p>
+        <nav class="research-toc" aria-label="Research topics">
+            <a class="btn" href="#architectures">Planetary architectures</a>
+            <a class="btn" href="#true-masses">True-mass demographics</a>
+            <a class="btn" href="#stellar-mass">Stellar mass and planet demographics</a>
+        </nav>
     </header>
 
-    <!-- Main Content -->
     <main class="container">
-        <!-- Research Overview -->
-        <section class="research-overview">
-            <h2>Research Overview</h2>
-            <p>
-                [Provide a comprehensive overview of your research program. Describe the main themes, 
-                questions you're investigating, and methodologies you employ.]
-            </p>
+        <!-- Figures live in images/research/. To show a placeholder instead of an image,
+             use a div with class "figure-placeholder" (styled in style.css). -->
+
+        <section id="architectures" class="research-section">
+            <h2>Planetary architectures</h2>
+            <div class="research-body">
+                <div>
+                    <p>
+                        The Solar System has small rocky planets close to the Sun and giant planets farther out. Is that architecture common? For my dissertation, I designed and led the <strong>Distant Giants Survey</strong>, a three-year Keck RV search for long-period giant planets in systems where TESS had already found a small transiting planet.
+                    </p>
+                    <p>
+                        Three years is short compared with the orbits of distant giants: a planet on a 10-year orbit appears only as a slow trend in the RVs. To recover these systems, I wrote <a href="https://github.com/jvanzand/ethraid" target="_blank" rel="noopener"><code>ethraid</code></a>, which combines RV trends with the 25-year baseline of Hipparcos-Gaia astrometry and with direct imaging.
+                    </p>
+                    <ul class="key-results">
+                        <li>Distant giants are <strong>twice as common</strong> in systems with an inner small planet as around the average Sun-like star.</li>
+                        <li>These outer giants have lower eccentricities than a comparison population, pointing toward dynamically cool histories that let inner planets survive.</li>
+                        <li>In the California Legacy Survey, this enhancement shows no evidence of depending on stellar metallicity.</li>
+                    </ul>
+                    <div class="paper-links">
+                        <h3>Papers</h3>
+                        <ul>
+                            <li>Survey results: occurrence and eccentricities (2025) · <span class="links"><a href="https://ui.adsabs.harvard.edu/abs/2025AJ....169..235V" target="_blank" rel="noopener">ADS</a> · <a href="https://arxiv.org/abs/2501.06342" target="_blank" rel="noopener">arXiv</a></span></li>
+                            <li>No metallicity-dependent enhancement (2024) · <span class="links"><a href="https://ui.adsabs.harvard.edu/abs/2024AJ....168..268V" target="_blank" rel="noopener">ADS</a> · <a href="https://arxiv.org/abs/2410.23071" target="_blank" rel="noopener">arXiv</a></span></li>
+                            <li>First giant-planet discoveries (2023) · <span class="links"><a href="https://ui.adsabs.harvard.edu/abs/2023AJ....165...60V" target="_blank" rel="noopener">ADS</a> · <a href="https://arxiv.org/abs/2209.06958" target="_blank" rel="noopener">arXiv</a></span></li>
+                        </ul>
+                    </div>
+                </div>
+                <figure class="figure">
+                    <img src="images/research/architectures.png" alt="Masses and orbital periods of close-in small planets and their distant giant companions" loading="lazy">
+                    <figcaption><strong>Distant giants often accompany close-in small planets.</strong> Masses and orbital periods of the survey's transiting small planets (red) and the distant giants found in the same systems (blue), joined by black lines and shown against known exoplanets (faded). The shaded box marks the survey's definition of a distant giant. From <a href="https://ui.adsabs.harvard.edu/abs/2025AJ....169..235V" target="_blank" rel="noopener">Van Zandt et al. (2025)</a>.</figcaption>
+                </figure>
+            </div>
         </section>
 
-        <!-- Research Topics -->
-        <section class="research-topics">
-            <h2>Research Topics</h2>
-            
-            <article class="research-topic">
-                <h3>[Research Topic 1]</h3>
-                <p>
-                    [Describe the first research topic. Include details about the scientific questions, 
-                    methods, and significance of this work. You can mention collaborators, instruments used, 
-                    or key findings.]
-                </p>
-                <p>
-                    [Add additional details or context as needed.]
-                </p>
-            </article>
-
-            <article class="research-topic">
-                <h3>[Research Topic 2]</h3>
-                <p>
-                    [Describe the second research topic. Include details about the scientific questions, 
-                    methods, and significance of this work.]
-                </p>
-                <p>
-                    [Add additional details or context as needed.]
-                </p>
-            </article>
-
-            <article class="research-topic">
-                <h3>[Research Topic 3]</h3>
-                <p>
-                    [Describe the third research topic. Include details about the scientific questions, 
-                    methods, and significance of this work.]
-                </p>
-                <p>
-                    [Add additional details or context as needed.]
-                </p>
-            </article>
+        <section id="true-masses" class="research-section">
+            <h2>True-mass demographics</h2>
+            <div class="research-body">
+                <div>
+                    <p>
+                        RVs measure only a planet's minimum mass, which blurs the boundaries between giant planets, brown dwarfs, and low-mass stars. Adding absolute astrometry from Hipparcos and Gaia breaks this degeneracy. I combined the <strong>California Legacy Survey</strong> with Hipparcos-Gaia astrometry to refit the orbits of 194 companions and measure their occurrence as a function of <em>true</em> mass and separation.
+                    </p>
+                    <ul class="key-results">
+                        <li>About 40% of RV-identified "brown dwarfs" turned out to be stars.</li>
+                        <li>Occurrence varies smoothly from giant planets to brown dwarfs, suggesting that core accretion and gravitational instability produce companions in overlapping mass ranges.</li>
+                        <li>The brown dwarf desert extends out to 10 AU.</li>
+                    </ul>
+                    <p>
+                        I apply the same approach to individual systems: characterizing companions to stars flagged by their astrometric accelerations for the <strong>GEODES</strong> survey, which prepares for Gaia DR4, and revisiting γ Cephei, host of the first exoplanet candidate.
+                    </p>
+                    <div class="paper-links">
+                        <h3>Papers</h3>
+                        <ul>
+                            <li>True-mass occurrence of the California Legacy Survey (2026) · <span class="links"><a href="https://ui.adsabs.harvard.edu/abs/2026AJ....171..267V" target="_blank" rel="noopener">ADS</a> · <a href="https://arxiv.org/abs/2511.18758" target="_blank" rel="noopener">arXiv</a></span></li>
+                            <li><code>ethraid</code>: RVs + astrometry + imaging (2024) · <span class="links"><a href="https://ui.adsabs.harvard.edu/abs/2024AJ....167..250V" target="_blank" rel="noopener">ADS</a> · <a href="https://arxiv.org/abs/2403.16340" target="_blank" rel="noopener">arXiv</a> · <a href="https://github.com/jvanzand/ethraid" target="_blank" rel="noopener">code</a></span></li>
+                            <li>GEODES I: three accelerating stars (2026) · <span class="links"><a href="https://ui.adsabs.harvard.edu/abs/2026ApJ..1006..222V" target="_blank" rel="noopener">ADS</a> · <a href="https://arxiv.org/abs/2605.23018" target="_blank" rel="noopener">arXiv</a></span></li>
+                            <li>The γ Cephei system (2026, accepted) · <span class="links"><a href="https://arxiv.org/abs/2608.30030" target="_blank" rel="noopener">arXiv</a></span></li>
+                            <li>Related: eccentricities across the planet–brown dwarf transition (Gilbert et al. 2026) · <span class="links"><a href="https://ui.adsabs.harvard.edu/abs/2026AJ....171...67G" target="_blank" rel="noopener">ADS</a> · <a href="https://arxiv.org/abs/2511.12816" target="_blank" rel="noopener">arXiv</a></span></li>
+                        </ul>
+                    </div>
+                </div>
+                <figure class="figure">
+                    <img src="images/research/true_masses.png" alt="Companion occurrence versus true mass (top) and versus semimajor axis (bottom) in the California Legacy Survey" loading="lazy">
+                    <figcaption><strong>Top: occurrence declines smoothly with true mass, with no sharp cut-off between giant planets and brown dwarfs.</strong> Occurrence of California Legacy Survey companions at 1&ndash;10 AU, with the occurrence rate annotated for each mass bin. <strong>Bottom: companions are more common beyond 1 AU.</strong> Occurrence versus semimajor axis for companions of 0.8&ndash;80 M<sub>Jup</sub>, fit with a broken power law (green) and a step function (yellow). From <a href="https://ui.adsabs.harvard.edu/abs/2026AJ....171..267V" target="_blank" rel="noopener">Van Zandt et al. (2026)</a>.</figcaption>
+                </figure>
+            </div>
         </section>
 
-        <!-- Collaborations (Optional) -->
-        <section class="collaborations">
-            <h2>Collaborations</h2>
-            <p>
-                [List institutions, research groups, or collaborators you work with. You can include 
-                links to their websites or institutions.]
-            </p>
-            <ul>
-                <li>[Collaborator/Institution 1]</li>
-                <li>[Collaborator/Institution 2]</li>
-                <li>[Collaborator/Institution 3]</li>
-            </ul>
+        <section id="stellar-mass" class="research-section">
+            <h2>Stellar mass and planet demographics</h2>
+            <div class="research-body stacked">
+                <div>
+                    <p>
+                        Giant planets are more common around more massive stars, but do the <em>distributions</em> of planet mass and orbital separation also change with stellar mass? Core accretion predicts that they should: more massive stars have more massive disks, and their water snow lines lie farther out.
+                    </p>
+                    <ul class="key-results">
+                        <li>Splitting my California Legacy Survey true-mass sample by host-star mass, I found tentative evidence that the planet mass function peaks near Jupiter's mass or below for lower-mass stars, but at several Jupiter masses for higher-mass stars (Van Zandt &amp; Bowler, submitted).</li>
+                        <li>I am now studying how companion separations vary with stellar mass and metallicity (in prep.).</li>
+                    </ul>
+                    <p>
+                        Gaia DR4 will make a controlled test possible. I have assembled a sample of about 7,000 stars from 0.6 to 1.2 solar masses, in two host-mass groups with matched metallicities, so that any difference in their planet populations can be attributed to stellar mass. With the GEODES team, I am vetting candidates now so that population analyses can begin as soon as DR4 is released.
+                    </p>
+                </div>
+                <figure class="figure">
+                    <img src="images/research/stellar_mass.png" alt="Giant-planet mass functions for lower-mass and higher-mass host stars" loading="lazy">
+                    <figcaption><strong>Planets around higher-mass stars appear to favor higher masses.</strong> Companion mass functions for California Legacy Survey stars below (left) and above (right) one solar mass. The fitted peak shifts tentatively from about one Jupiter mass to two or three. Van Zandt &amp; Bowler (submitted).</figcaption>
+                </figure>
+            </div>
         </section>
+        <p class="see-all"><a href="publications.html">All publications →</a></p>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
-        <p>&copy; <span id="year"></span> Judah Van Zandt. All rights reserved.</p>
-        <p class="footer-credit">Design inspired by academic research websites.</p>
+        <p>&copy; <span id="year"></span> Judah Van Zandt</p>
+        <p class="footer-links">
+            <a href="mailto:judahvz@ucsb.edu">judahvz@ucsb.edu</a>
+            <a href="https://orcid.org/0000-0002-4290-6826" target="_blank" rel="noopener">ORCID</a>
+            <a href="https://github.com/jvanzand" target="_blank" rel="noopener">GitHub</a>
+        </p>
     </footer>
 
     <script src="script.js"></script>

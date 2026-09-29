@@ -25,3 +25,5 @@ dist/
 build/
 *.min.css
 *.min.js
+.claude/
+cv-src/

@@ -3,79 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Judah Van Zandt - Researcher</title>
+    <title>Judah Van Zandt · Exoplanet Demographics</title>
+    <meta name="description" content="Judah Van Zandt is a postdoctoral researcher at UC Santa Barbara studying giant-planet demographics and planetary system architectures with radial velocities, astrometry, and imaging.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation Menu -->
     <nav class="navbar">
         <div class="nav-container">
-            <h1 class="logo"><a href="index.html">Judah Van Zandt</a></h1>
+            <p class="logo"><a href="index.html">Judah Van Zandt</a></p>
             <ul class="nav-menu">
-                <li><a href="index.html" class="active">About Me</a></li>
+                <li><a href="index.html">About</a></li>
                 <li><a href="research.html">Research</a></li>
-                <li><a href="publications.html">Selected Publications</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="cv.pdf" data-cv target="_blank" rel="noopener">CV</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Header Section -->
-    <header class="header">
-        <div class="header-content">
-            <h1>Judah Van Zandt, Ph.D.</h1>
-            <p class="subtitle">Astrophysicist</p>
-            <div class="header-links">
-                <a href="#" class="btn">CV (PDF)</a>
-                <a href="mailto:judahvz@ucsb.edu" class="btn">Contact</a>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
     <main class="container">
-        <!-- About Me Section -->
-        <section class="about-section">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <img src="images/headshot.jpeg" alt="Profile Photo" class="profile-image">
-                <div class="about-text">
-                    <p>
-                        Welcome! I'm a postdoc at UC Santa Barbara, working with Brendan Bowler. I received my PhD in 2025 from UCLA, where I worked with Erik Petigura to explore exoplanet occurrence and orbital characteristics. I am especially interested in combining multiple detection techniques to improve our understanding of exosystem structure.
-                    </p>
-                    <p>
-                        I am interested in understanding the relationships between different objects that orbit stars. Some are planets, which can be small and rocky, or big and gaseous. Some are close to their host star, while others orbit far away. Some aren't planets at all, and instead fall into the category of "brown dwarfs." Some are stars themselves!
-                    </p>
+        <section class="hero">
+            <img src="images/judah_headshot.jpeg" alt="Judah Van Zandt" class="profile-image">
+            <div class="hero-text">
+                <h1>Judah Van Zandt</h1>
+                <p class="subtitle">Postdoctoral Researcher, University of California, Santa Barbara</p>
+                <p>
+                    I'm a postdoc at UC Santa Barbara working with Brendan Bowler. I received my Ph.D. in 2025 from UCLA, where I worked with Erik Petigura on <a href="research.html#architectures">exoplanet occurrence and orbital architectures</a>. My research combines radial velocities, astrometry, and imaging to measure what no single technique can.
+                </p>
+                <p>
+                    I am interested in the relationships between the different objects that orbit stars. Some are planets, which can be small and rocky, or big and gaseous; some are <a href="research.html#architectures">close to their host star, while others orbit far away</a>. Some aren't planets at all, and instead fall into the category of <a href="research.html#true-masses">brown dwarfs, or are stars themselves</a>. Right now I'm preparing for Gaia DR4, which will let me test <a href="research.html#stellar-mass">how giant-planet populations depend on the mass of their host stars</a>.
+                </p>
+                <div class="hero-links">
+                    <a href="cv.pdf" data-cv class="btn primary" target="_blank" rel="noopener">CV</a>
+                    <a href="mailto:judahvz@ucsb.edu" class="btn">Email</a>
+                    <a href="https://ui.adsabs.harvard.edu/search/q=orcid%3A0000-0002-4290-6826&amp;sort=date%20desc" class="btn" target="_blank" rel="noopener">ADS</a>
+                    <a href="https://orcid.org/0000-0002-4290-6826" class="btn" target="_blank" rel="noopener">ORCID</a>
+                    <a href="https://github.com/jvanzand" class="btn" target="_blank" rel="noopener">GitHub</a>
                 </div>
             </div>
         </section>
 
-        <!-- Education Section -->
-        <section class="education-section">
-            <h2>Education</h2>
-            <div class="education-list">
-                <div class="education-item">
-                    <h3>[Degree Type, Field of Study]</h3>
-                    <p class="institution">[University Name] ([Graduation Year])</p>
-                    <p class="details">[Optional: relevant honors, focus areas, or additional details]</p>
-                </div>
-                <div class="education-item">
-                    <h3>[Degree Type, Field of Study]</h3>
-                    <p class="institution">[University Name] ([Graduation Year])</p>
-                    <p class="details">[Optional: relevant honors, focus areas, or additional details]</p>
-                </div>
-                <div class="education-item">
-                    <h3>[Degree Type, Field of Study]</h3>
-                    <p class="institution">[University Name] ([Graduation Year])</p>
-                    <p class="details">[Optional: relevant honors, focus areas, or additional details]</p>
-                </div>
+        <section>
+            <h2 class="section-title">Research highlights</h2>
+            <div class="highlights">
+                <a class="highlight-card" href="research.html#architectures">
+                    <h3>Planetary architectures</h3>
+                    <p>Distant giant planets are twice as common in systems with an inner small planet, and they tend to have low eccentricities.</p>
+                    <span class="card-more">Read more →</span>
+                </a>
+                <a class="highlight-card" href="research.html#true-masses">
+                    <h3>True-mass demographics</h3>
+                    <p>Combining RVs with Hipparcos-Gaia astrometry reveals true masses, showing that many RV "brown dwarfs" are actually stars.</p>
+                    <span class="card-more">Read more →</span>
+                </a>
+                <a class="highlight-card" href="research.html#stellar-mass">
+                    <h3>Stellar mass and planet demographics</h3>
+                    <p>Do more massive stars form more massive planets? Gaia DR4 will provide a controlled test.</p>
+                    <span class="card-more">Read more →</span>
+                </a>
             </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Education</h2>
+            <ul class="entry-list">
+                <li class="entry">
+                    <div><span class="entry-title">Ph.D., Astronomy and Astrophysics</span> · <span class="entry-where">University of California, Los Angeles</span></div>
+                    <span class="entry-date">2025</span>
+                </li>
+                <li class="entry">
+                    <div><span class="entry-title">M.S., Astronomy and Astrophysics</span> · <span class="entry-where">University of California, Los Angeles</span></div>
+                    <span class="entry-date">2021</span>
+                </li>
+                <li class="entry">
+                    <div><span class="entry-title">B.S., Physics and Mathematics</span> · <span class="entry-where">University of Notre Dame</span></div>
+                    <span class="entry-date">2019</span>
+                </li>
+            </ul>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
-        <p>&copy; <span id="year"></span> Judah Van Zandt. All rights reserved.</p>
-        <p class="footer-credit">Design inspired by academic research websites.</p>
+        <p>&copy; <span id="year"></span> Judah Van Zandt</p>
+        <p class="footer-links">
+            <a href="mailto:judahvz@ucsb.edu">judahvz@ucsb.edu</a>
+            <a href="https://orcid.org/0000-0002-4290-6826" target="_blank" rel="noopener">ORCID</a>
+            <a href="https://github.com/jvanzand" target="_blank" rel="noopener">GitHub</a>
+        </p>
     </footer>
 
     <script src="script.js"></script>
