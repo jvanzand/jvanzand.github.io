@@ -5,7 +5,7 @@
 // Link used by every "CV" link on the site (elements with a data-cv attribute).
 // cv.pdf is compiled from the Overleaf CV by .github/workflows/build-cv.yml, which also
 // updates the ?v= tag below to the Overleaf commit so browsers fetch each new version.
-const CV_URL = "cv.pdf?v=7c78354";
+const CV_URL = "cv.pdf?v=759eb64";
 
 document.addEventListener('DOMContentLoaded', function () {
     // CV links
