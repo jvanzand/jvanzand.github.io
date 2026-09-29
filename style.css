@@ -429,6 +429,80 @@ section + section {
     font-weight: 600;
 }
 
+.video-card {
+    display: block;
+    margin-top: 28px;
+    color: var(--ink);
+}
+
+.video-card:hover {
+    text-decoration: none;
+    color: var(--ink);
+}
+
+.video-thumb {
+    position: relative;
+    display: block;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--rule);
+}
+
+.video-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.video-card:hover .video-thumb img {
+    transform: scale(1.03);
+}
+
+/* Play button: dark circle with a white triangle. */
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 56px;
+    height: 56px;
+    margin: -28px 0 0 -28px;
+    border-radius: 50%;
+    background: rgba(20, 30, 40, 0.75);
+    transition: background-color 0.15s ease;
+}
+
+.play-icon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -6px;
+    border-style: solid;
+    border-width: 10px 0 10px 17px;
+    border-color: transparent transparent transparent #fff;
+}
+
+.video-card:hover .play-icon {
+    background: #c4302b;
+}
+
+.video-text {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+    line-height: 1.5;
+}
+
+.video-text strong {
+    display: block;
+    color: var(--accent);
+    font-size: 0.92rem;
+}
+
 /* ============================================
    Publications page
    ============================================ */
