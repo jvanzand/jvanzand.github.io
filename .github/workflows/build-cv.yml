@@ -30,7 +30,27 @@ jobs:
         env:
           OVERLEAF_TOKEN: ${{ secrets.OVERLEAF_TOKEN }}
         run: |
-          git clone --depth 1 "https://git:${OVERLEAF_TOKEN}@git.overleaf.com/6ab582345e8bd319775a9b81" cv-src
+          # Overleaf's Git service sometimes returns 503 ("no healthy upstream") for a
+          # while. Try three times, five minutes apart. If it is still down, skip this
+          # run with a warning (the next daily run tries again). Authentication errors
+          # still fail the run, since they mean OVERLEAF_TOKEN needs replacing.
+          for attempt in 1 2 3; do
+            if git clone --depth 1 "https://git:${OVERLEAF_TOKEN}@git.overleaf.com/6ab582345e8bd319775a9b81" cv-src 2> clone-error.txt; then
+              break
+            fi
+            cat clone-error.txt
+            if grep -qiE "authentication failed|error: (401|403)" clone-error.txt; then
+              echo "::error::Overleaf rejected OVERLEAF_TOKEN. Generate a new Git token in Overleaf and update the repository secret."
+              exit 1
+            fi
+            if [ "$attempt" = 3 ]; then
+              echo "::warning::Overleaf's Git service was unavailable after 3 attempts. Skipping this run; cv.pdf is unchanged."
+              echo "changed=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "Clone attempt $attempt failed; retrying in 5 minutes."
+            sleep 300
+          done
           new=$(git -C cv-src rev-parse HEAD)
           old=$(cat .cv-source-commit 2>/dev/null || true)
           echo "commit=$new" >> "$GITHUB_OUTPUT"
