@@ -562,6 +562,15 @@ section + section {
     font-variant-numeric: tabular-nums;
 }
 
+/* Entries outside the numbered paper list, such as the dissertation */
+.publication-list.unnumbered li {
+    counter-increment: none;
+}
+
+.publication-list.unnumbered li::before {
+    content: none;
+}
+
 .publication-list li:target {
     background: var(--accent-tint);
     border-radius: var(--radius);
